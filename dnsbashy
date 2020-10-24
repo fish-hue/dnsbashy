@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#for fun testing
+
+echo "HOST DNS RECON"
+read -p 'Hostname ' hostvar
+host -t ns $hostvar
+
+echo "enter a listed name server "
+read -p 'Server ' server
+host -l $hostvar $server
+
+echo "enter any other possible subdomain"
+read -p 'Subdomain ' subvar
+host $subvar.$hostvar
+
+echo "enter an IP "
+read -p 'IP address ' ip
+nmap -Pn $ip
+
+echo "finished"
