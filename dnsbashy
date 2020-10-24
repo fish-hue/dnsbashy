@@ -4,7 +4,7 @@
 
 echo "host for DNS enumeration"
 read -p 'Enter Hostname to search ' hostvar
-host -t ns $hostvar
+host -t ns $hostvar | cut -d " " -f 4
 
 echo "enter a listed name server from above to attempt zone transfer "
 read -p 'Server ' server
