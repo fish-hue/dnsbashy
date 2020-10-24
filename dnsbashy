@@ -2,19 +2,19 @@
 
 #for fun testing
 
-echo "HOST DNS RECON"
-read -p 'Hostname ' hostvar
+echo "host for DNS enumeration"
+read -p 'Enter Hostname to search ' hostvar
 host -t ns $hostvar
 
-echo "enter a listed name server "
+echo "enter a listed name server from above to attempt zone transfer "
 read -p 'Server ' server
 host -l $hostvar $server
 
-echo "enter any other possible subdomain"
+echo "enter any other possible subdomain or IP address to search "
 read -p 'Subdomain ' subvar
 host $subvar.$hostvar
 
-echo "enter an IP "
+echo "enter an IP for basic nmap -Pn scan "
 read -p 'IP address ' ip
 nmap -Pn $ip
 
